@@ -54,12 +54,12 @@ class DatosWeb():
           mode_6 = 'planificacion.sistemas'
 
           mode_url_to_func = {
-              mode_1: DatosWeb.get_basic_data,
-              mode_2: DatosWeb.get_competencies,
-              mode_3: DatosWeb.get_year,
-              mode_4: DatosWeb.get_info,
-              mode_5: DatosWeb.get_info,
-              mode_6: DatosWeb.get_info,
+              mode_1: DatosWeb.get_basic_data, #--basico
+              mode_2: DatosWeb.get_competencies, #--competences
+              mode_3: DatosWeb.get_year, #--data
+              mode_4: DatosWeb.get_info, #--module
+              mode_5: DatosWeb.get_info, #--method
+              mode_6: DatosWeb.get_info, #--system
           }
 
           if len(args)==3:
