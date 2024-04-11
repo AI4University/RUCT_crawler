@@ -112,6 +112,13 @@ class DatosWeb():
 
 
     def basico(url,var,id):
+        """
+        :url: URL
+        :var: variable that we aim to extract
+        :id: university ID
+        :return: extracts the value from 'var' variable for a given URL and university id.
+
+        """
         soup = BeautifulSoup(requests.get(re.sub('codigoin', id, url),verify=False).text, 'lxml')
         try:
           out = soup.findAll(attrs={"name": var})[0]['value']
@@ -136,7 +143,6 @@ class DatosWeb():
 
     def get_year(url, id):
           """
-
           :param url:  url que indica la fecha de inicio de la titulacion
           :param id:   identificador de la titulacion indicada
           :return:     diccionario con la fecha asociada al identificador
