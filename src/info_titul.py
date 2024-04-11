@@ -1,4 +1,4 @@
-from utils import curves_to_edges,limpieza
+from src.utils import curves_to_edges,limpieza
 # import ReadingPipe
 import errno
 import time
@@ -44,7 +44,7 @@ class DatosWeb():
     def _Mode(*args):
           """
           Control de tipo de url que llega para leer
-          :param args: url, identificador, lista de competencias, dataframe
+          :param args: url_base, identificador, lista de competencias, dataframe
           """
           mode_1 = 'basicos'
           mode_2 = 'competencias.palabratipocomp'
@@ -65,6 +65,7 @@ class DatosWeb():
           if len(args)==3:
                mode_url = str(args[0])[str(args[0]).index('actual=menu.solicitud.') + 22:str(args[0]).index('&')]
                func = mode_url_to_func[mode_url]
+                
                if mode_url == mode_1:
                     df_int = func(args[0], args[1])
                     args[2]['Nombre'] = df_int['Nombre']
@@ -75,14 +76,20 @@ class DatosWeb():
                     args[2]['Condigo de Agencia'] = df_int['Codigo de Agencia']
 
                if mode_url == mode_3:
+                # Ejemplo:
+                # func(args[0], args[1]) = DatosWeb.get_year(args[0], args[1])
+                
                         args[2]['calendario'] = func(args[0], args[1])
                         time.sleep(2)
+                        
                if mode_url == mode_4:
                         args[2]['Modulo'] = func(args[0], args[1])
                         time.sleep(2)
+                        
                if mode_url == mode_5:
                         args[2]['Metodologia'] = func(args[0], args[1])
                         time.sleep(2)
+                        
                if mode_url == mode_6:
                         args[2]['Sistema de Formacion'] = func(args[0], args[1])
 
@@ -204,9 +211,9 @@ class DatosWeb():
           """
           :param url_tabla:  url general donde aparecen todas las titulaciones
           :param id:         id que busco para completar los datos
-          :param op:         universidad donde estoy
-          :param cad:        numero de tablas maxi
-          :param col:        leo columna univer o columna estado
+          :param op:         código de universidad donde estoy
+          :param max_tabla:        numero de tablas maxi
+          :param col:        leo columna "Universidad" o columna "Estado"
           :return:           diccionario donde se asocia el id a la info guardada
           """
           sleep_duration = 4
