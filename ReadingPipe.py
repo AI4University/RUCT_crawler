@@ -12,8 +12,8 @@ import requests
 import pandas as pd
 import pyarrow
 import fastparquet
-from tabula import read_pdf
-#import openpyxl
+# from tabula import read_pdf
+# import openpyxl
 import urllib3
 import pyarrow.parquet as pq
 import pyarrow as pa
@@ -38,16 +38,18 @@ def main():
                          action='store_true',help="Download a table of methods used in each university degree")
      parser.add_argument("--system", default=False,
                          action='store_true' ,help="Download a table of the information systems used in each university degree")
+     """
      parser.add_argument("--pdf", default=False,
                          action='store_true',
                          help="Download the PDF of each study plan")
+    """
      parser.add_argument("--university", type=str, default="All",
                          required=False, help="Number of the university that is read(only one). By default all")
 
      args = parser.parse_args()
      configuracion = configparser.ConfigParser()
      configuracion.read('inconfig.cfg')
-     ubicacion = ".\\pdf_output"
+     # ubicacion = "./pdf_output"
 
      #Create logger object
      logging.basicConfig(filename='logfile.log', level=logging.INFO)
@@ -58,6 +60,7 @@ def main():
      destination_path = pathlib.Path(args.destination_path)
      list_compt=[]
      if args.competences != None:
+         # Competences can be at most three: T, G, E
          if len(args.competences)>3:
              logger.error(
                  f"-- {args.competences} exceed size ")
@@ -93,11 +96,6 @@ def main():
      if args.system:
          list_data.append(configuracion['sistemaforma']['url'])
 
-     if args.pdf:
-         pdf = configuracion['pdf']['url']
-     else:
-         pdf = ""
-
      if args.university == "All":
          opciones = universidades([])
      else:
@@ -106,9 +104,9 @@ def main():
      principal = configuracion['principal']['url']
 
      # Read existing data from files
-     with open('data\\Uni.txt', 'r') as f:
+     with open('data/Uni.txt', 'r') as f:
           titulaciones = f.read()
-     with open("data\\Iden.txt", 'r') as f:
+     with open("data/Iden.txt", 'r') as f:
           identificadores = f.read()
 
      #'.\output\Data_example.parquet'
@@ -116,12 +114,12 @@ def main():
      for op in opciones:
           if f"-{op}-" not in titulaciones:
                list = creacion_tablas(configuracion['principal']['url'], op)
-               for i in list[0]:
+               for i in list[0]: # list[0] son los id de la uni, list[1] la página
                     if f"-{i}-" not in identificadores:
-                         df_id =src.info_titul.DatosWeb.control(list_data, i, competencias, principal, op, list[1],
-                                                        pdf, ubicacion)
+                         df_id =src.info_titul.DatosWeb.control(list_data, i, competencias, principal, op, list[1])
+                         logger.info(f"Processing data for ID {i}: {df_id}")
 
-                         print(df_id)
+                         #print(df_id)
                          if path.exists(destination_path):
                              df = pd.read_parquet(destination_path)
                              # concatenar:
@@ -133,13 +131,13 @@ def main():
                          else:
                              df_id.astype(str).to_parquet(destination_path)
 
-                         with open("data\\Iden.txt", mode="a") as f:
+                         with open("data/Iden.txt", mode="a") as f:
                             f.write(f"-{i}-")
 
                     else:
                          logging.info(f"Identifier {i} already exists in file Ide.txt for {op}")
 
-               with open("data\\Uni.txt", mode="a") as f:
+               with open("data/Uni.txt", mode="a") as f:
                   f.write(f"-{op}-")
                   logging.info(f"Added title {op} to file Uni.txt")
           else:
