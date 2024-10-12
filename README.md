@@ -55,6 +55,10 @@ The repository is organized as follows:
 
 ```bash
 ├── ReadingPipe.py
+│
+├── Docs/
+│   ├── TFG_Lucía_Cordero_Sánchez.pdf
+│
 ├── data/
 │   ├── identificadores_grados_final.txt
 │   └── identificadores_universidades.txt
