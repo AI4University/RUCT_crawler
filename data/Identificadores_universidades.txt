@@ -1,0 +1,100 @@
+Number | University  
+099	 | Centros autorizados para impartir Enseñanzas Artísticas Superiores
+086	 | Centros dependientes del Ministerio de Defensa
+092	 | Centros extranjeros autorizados por la Comunidad Autónoma de Cantabria
+101	 | Centros extranjeros autorizados por la Comunidad Autónoma de Cataluña	
+095  | Centros extranjeros autorizados por la Comunidad Autónoma del Pais Vasco
+093  | Centros extranjeros autorizados por la Comunidad de Andalucía
+091	 | Centros extranjeros autorizados por la Comunidad de Madrid
+096	 | Centros extranjeros autorizados por la Comunidad de Valencia
+089	 | CUNEF Universidad
+087	 | ESIC Universidad
+057	 | IE Universidad
+061	 | Mondragón Unibertsitatea
+074	 | Universidad a Distancia de Madrid
+047	 | Universidad Alfonso X El Sabio
+052	 | Universidad Antonio de Nebrija
+022	 | Universidad Autónoma de Barcelona
+023	 | Universidad Autónoma de Madrid
+065	 | Universidad Camilo José Cela
+067	 | Universidad Cardenal Herrera-CEU
+036	 | Universidad Carlos III de Madrid
+072	 | Universidad Católica de Valencia San Vicente Mártir 
+066	 | Universidad Católica San Antonio
+059	 | Universidad Católica Santa Teresa de Jesús de Ávila
+010	 | Universidad Complutense de Madrid
+037	 | Universidad de A Coruña
+029	 | Universidad de Alcalá
+001	 | Universidad de Alicante
+048	 | Universidad de Almería
+004	 | Universidad de Barcelona
+051	 | Universidad de Burgos
+005	 | Universidad de Cádiz
+016	 | Universidad de Cantabria
+034	 | Universidad de Castilla-La Mancha
+006	 | Universidad de Córdoba
+030	 | Universidad de Deusto
+100	 | Universidad de Diseño,Innovación y Tecnología 
+002	 | Universidad de Extremadura
+043	 | Universidad de Girona
+008	 | Universidad de Granada
+049	 | Universidad de Huelva
+050	 | Universidad de Jaén
+015	 | Universidad de La Laguna
+045	 | Universidad de La Rioja
+090	 | Universidad de las Hespérides
+026	 | Universidad de Las Palmas de Gran Canaria
+009	 | Universidad de León
+044	 | Universidad de Lleida
+011	 | Universidad de Málaga
+012	 | Universidad de Murcia
+031	 | Universidad de Navarra
+013	 | Universidad de Oviedo
+014	 | Universidad de Salamanca
+007	 | Universidad de Santiago de Compostela
+017	 | Universidad de Sevilla
+019	 | Universidad de Valladolid
+060	 | Universidad de Vic-Universidad Central Catalunya
+038	 | Universidad de Vigo
+021	 | Universidad de Zaragoza
+085	 | Universidad del Atlántico Medio
+020	 | Universidad del País Vasco
+098	 | Universidad Euneiz
+079	 | Universidad Europea de Canarias
+053	 | Universidad Europea de Madrid
+082	 | Universidad Europea de Valencia
+083	 | Universidad Europea de Atlántico
+069	 | Universidad Europea de Miguel de Cervantes
+084	 | Universidad Fernando Pessoa-Canarias
+068	 | Universidad Francisco de Vitoria
+097	 | Universidad Intercontinental de la Empresa
+063	 | Universidad Internacional de Andalucía
+094	 | Universidad Internacional de la Empresa
+077	 | Universidad Internacional de la Rioja
+080	 | Universidad Internacional Isabel I de Castilla
+071	 | Universidad Internacional Menéndez Pelayo
+088	 | Universidad Internacional Villanueva
+040	 | Universidad Jaume I de Castellón
+081	 | Universidad Loyola Andalucía
+055	 | Universidad Miguel Hernández de Elche
+028	 | Universidad Nacional de Educación a Distancia
+058	 | Universidad Pablo de Olavide
+064	 | Universidad Politécnica de Cartagena
+024	 | Universidad Politécnica de Catalunya
+025	 | Universidad Politécnica de Madrid
+039	 | Universidad Pompeu
+033	 | Universidad Pontificia Comillas
+032	 | Universidad Pontificia de Salamanca
+035	 | Universidad Pública de Navarra
+041	 | Universidad Ramón Llull
+056	 | Universidad Rey Juan Carlos
+042	 | Universidad Rovira i Virgili
+073	 | Universidad San Jorge
+046	 | Universidad San Pablo-CEU
+070	 | Universidad Abat Oliba CEU
+003	 | Universidad de les Illes Balears
+018	 | Universidad de Valencia
+062	 | Universidad Internacional de Catalunya
+076	 | Universidad Internacional de Valencia
+054	 | Universidad Oberta de Catalunya
+027	 | Universidad Politecnica de Valencia
