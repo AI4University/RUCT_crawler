@@ -38,18 +38,26 @@ def main():
                          action='store_true',help="Download a table of methods used in each university degree")
      parser.add_argument("--system", default=False,
                          action='store_true' ,help="Download a table of the information systems used in each university degree")
-     """
-     parser.add_argument("--pdf", default=False,
+#######################################
+     parser.add_argument("--activities", default=False,
                          action='store_true',
-                         help="Download the PDF of each study plan")
-    """
+                         help="Download a table of the formative activities used in each university degree")
+
+     parser.add_argument("--materias", default=False, action='store_true',
+                         help="Download a table of subjects (materias) for each module.")
+     parser.add_argument("--asignaturas", default=False, action='store_true',
+                         help="Download a table of assignments (asignaturas) for each module.")
+
+     parser.add_argument("--contenidos", default=False, action='store_true',
+                         help="Download the contents for each module.")
+
      parser.add_argument("--university", type=str, default="All",
                          required=False, help="Number of the university that is read(only one). By default all")
+
 
      args = parser.parse_args()
      configuracion = configparser.ConfigParser()
      configuracion.read('inconfig.cfg')
-     # ubicacion = "./pdf_output"
 
      #Create logger object
      logging.basicConfig(filename='logfile.log', level=logging.INFO)
@@ -95,6 +103,14 @@ def main():
          list_data.append(configuracion['metodologia']['url'])
      if args.system:
          list_data.append(configuracion['sistemaforma']['url'])
+     if args.activities:
+         list_data.append(configuracion['actividades']['url'])
+     if args.materias:
+         list_data.append(configuracion['materias']['url'])
+     if args.asignaturas:
+         list_data.append(configuracion['asignaturas']['url'])
+     if args.contenidos:
+         list_data.append(configuracion['contenidos']['url'])
 
      if args.university == "All":
          opciones = universidades([])
@@ -104,9 +120,9 @@ def main():
      principal = configuracion['principal']['url']
 
      # Read existing data from files
-     with open('data/Uni.txt', 'r') as f:
+     with open('data/Uni_contents.txt', 'r') as f:
           titulaciones = f.read()
-     with open("data/Iden.txt", 'r') as f:
+     with open("data/Iden_contents.txt", 'r') as f:
           identificadores = f.read()
 
      #'.\output\Data_example.parquet'
@@ -116,10 +132,12 @@ def main():
                list = creacion_tablas(configuracion['principal']['url'], op)
                for i in list[0]: # list[0] son los id de la uni, list[1] la página
                     if f"-{i}-" not in identificadores:
-                         df_id =src.info_titul.DatosWeb.control(list_data, i, competencias, principal, op, list[1])
+                        # pasa el argumento list_data para pasar por el control todas las opciones seleccionadas
+                        # por el usuario
+                         df_id = src.info_titul.DatosWeb.control(list_data, i, competencias, principal, op, list[1])
                          logger.info(f"Processing data for ID {i}: {df_id}")
 
-                         #print(df_id)
+                        #print(df_id)
                          if path.exists(destination_path):
                              df = pd.read_parquet(destination_path)
                              # concatenar:
@@ -131,17 +149,17 @@ def main():
                          else:
                              df_id.astype(str).to_parquet(destination_path)
 
-                         with open("data/Iden.txt", mode="a") as f:
+                         with open("data/Iden_contents.txt", mode="a") as f:
                             f.write(f"-{i}-")
 
                     else:
                          logging.info(f"Identifier {i} already exists in file Ide.txt for {op}")
 
-               with open("data/Uni.txt", mode="a") as f:
+               with open("data/Uni_contents.txt", mode="a") as f:
                   f.write(f"-{op}-")
-                  logging.info(f"Added title {op} to file Uni.txt")
+                  logging.info(f"Added title {op} to file Uni_contents.txt")
           else:
-               logging.info(f"Title {op} already exists in file Uni.txt")
+               logging.info(f"Title {op} already exists in file Uni_contents.txt")
           print(op)
 
 #Execute main

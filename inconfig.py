@@ -8,7 +8,7 @@ configuracion['calendario'] ={'url':'https://www.educacion.gob.es/ruct/solicitud
 configuracion['modulo']={'url':'https://www.educacion.gob.es/ruct/solicitud/modulos?actual=menu.solicitud.planificacion.modulos&cod=codigoin'}
 configuracion['metodologia']={'url':'https://www.educacion.gob.es/ruct/solicitud/metodologias?actual=menu.solicitud.planificacion.metodologias&cod=codigoin'}
 configuracion['sistemaforma'] ={'url':'https://www.educacion.gob.es/ruct/solicitud/sistemas?actual=menu.solicitud.planificacion.sistemas&cod=codigoin'}
-configuracion['pdf'] ={'url':'https://www.educacion.gob.es/ruct/solicitud/descripcionplan?actual=menu.solicitud.planificacion.descripcion&cod=codigoin'}
+
 
 with open('inconfig.cfg','w') as archivoconfig:
     configuracion.write(archivoconfig)
