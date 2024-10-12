@@ -54,6 +54,7 @@ You can choose any combination of arguments to scrape the information at your de
 The repository is organized as follows:
 
 ```bash
+├── ReadingPipe.py
 ├── data/
 │   ├── identificadores_grados_final.txt
 │   └── identificadores_universidades.txt
@@ -64,7 +65,8 @@ The repository is organized as follows:
 │   └── testing-pipeline.ipynb
 │ 
 ├── logfile.log
-├── ReadingPipe.py
+├── inconfig.py
+├── inconfig.cfg
 ├── README.md
 ├── LICENSE
 └──requirements.txt
