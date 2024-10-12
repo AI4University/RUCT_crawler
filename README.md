@@ -1,10 +1,3 @@
-# Bachelor's Thesis in Data Science and Engineering 
-
-- **Author**: Lucía Cordero Sánchez
-- **Institution**: Universidad Carlos III de Madrid.  
-- **Date**: September 2023 - September 2024
-- **Defended on**: September 2024
-
 ## Context
 This project downloads basic information about Spanish universities based on the html structure of the following link.
 ```
